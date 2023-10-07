@@ -1,0 +1,43 @@
+package com.example.imc;
+
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+
+import java.text.BreakIterator;
+import java.text.StringCharacterIterator;
+
+public class MainActivit extends AppCompatactivity {
+    EditText textNumero1;
+    EditText textNumero2;
+    EditText textNumero3;
+
+
+public void imc (View vista){
+// Validación de edad
+    int edad = Integer.parseInt(textNumero1.getText().toString());
+    if (edad < 10 || edad > 100) {
+        // Mostrar un mensaje de error
+        return;
+    }
+
+// Validación de peso
+    float peso = Float.parseFloat(textNumero2.getText().toString());
+    if (peso < 20 || peso > 150) {
+        // Mostrar un mensaje de error
+        return;
+    }
+
+// Validación de talla
+    float talla = Float.parseFloat(textNumero3.getText().toString());
+    if (talla < 1 || talla > 2.3) {
+        // Mostrar un mensaje de error
+        return;
+
+    }
+    float imc = peso / (talla * talla);
+    peso.setText("IMC: " + String.format("%.2f", imc));
+
+}
+}
